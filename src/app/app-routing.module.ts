@@ -14,6 +14,7 @@ import { AuthGuardsService } from './services/auth-guards.service';
 import { RoleComponent } from './pages/role/role.component';
 import { AddUserComponent } from './pages/add-user/add-user.component';
 import { CourseComponent } from './pages/course/course.component';
+import { ContactIdComponent } from './pages/contact-id/contact-id.component';
 
 const routes: Routes = [
 
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'index', component: HomeComponent, children: [
       {path:'',component:CourseComponent}
   ] },
+
   { path: 'login', component: LoginComponent },
    {path:'annonces',component:InformationComponent},
    {
@@ -30,6 +32,7 @@ const routes: Routes = [
       { path: 'profile', component: AdminProfileComponent },
       { path: 'annonce', component: AdminAnnoncesComponent },
       {path:"contact",component:ContactComponent},
+      {path:"contact/:id",component:ContactIdComponent},
       {path:"role",component:RoleComponent},
       {path:"add",component:AddUserComponent}
     ]

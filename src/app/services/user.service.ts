@@ -18,4 +18,10 @@ export class UserService {
     return this.httpClient.get<User[]>(this.auth.host +'/users',{ headers: headers });
 
   }
+
+  getUserById(id:number):Observable<User> {
+    const headers = new HttpHeaders({'authorization' :'Bearer' + this.auth.jwt});
+    return this.httpClient.get<User>(this.auth.host+ '/'+$`{id}`,{headers:headers} )
+
+  }
 }

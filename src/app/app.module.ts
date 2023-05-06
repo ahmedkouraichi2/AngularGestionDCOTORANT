@@ -26,6 +26,8 @@ import { RoleComponent } from './pages/role/role.component';
 import { AddUserComponent } from './pages/add-user/add-user.component';
 import { FooterComponent } from './pages/footer/footer.component';
 import { CourseComponent } from './pages/course/course.component';
+import { ContactIdComponent } from './pages/contact-id/contact-id.component';
+import { TopnavbarComponent } from './pages/topnavbar/topnavbar.component';
 
 
 @NgModule({
@@ -48,7 +50,9 @@ import { CourseComponent } from './pages/course/course.component';
     RoleComponent,
     AddUserComponent,
     FooterComponent,
-    CourseComponent ,
+    CourseComponent,
+    ContactIdComponent,
+    TopnavbarComponent ,
 
   ],
   imports: [

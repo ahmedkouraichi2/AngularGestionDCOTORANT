@@ -16,7 +16,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let user of users">
+    <tr  *ngFor="let user of users">
       <td>{{ user.id }}</td>
       <td>{{ user.email }}</td>
       <td>{{ user.firstname }}</td>
@@ -48,6 +48,10 @@
           <li *ngFor="let role of user.roles">{{ role.roleName }}</li>
         </ul>
       </td>
+
+      <button [routerLink]="['/menu/contact/', user.id]">
+          Modifier
+      </button>
     </tr>
   </tbody>
 </table>
