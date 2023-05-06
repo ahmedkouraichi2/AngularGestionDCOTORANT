@@ -24,6 +24,8 @@ import { AdminLayoutComponent } from './pages/admin-layout/admin-layout.componen
 import { AdminAnnoncesComponent } from './pages/admin-annonces/admin-annonces.component';
 import { RoleComponent } from './pages/role/role.component';
 import { AddUserComponent } from './pages/add-user/add-user.component';
+import { FooterComponent } from './pages/footer/footer.component';
+import { CourseComponent } from './pages/course/course.component';
 
 
 @NgModule({
@@ -44,7 +46,9 @@ import { AddUserComponent } from './pages/add-user/add-user.component';
     AdminLayoutComponent,
     AdminAnnoncesComponent,
     RoleComponent,
-    AddUserComponent ,
+    AddUserComponent,
+    FooterComponent,
+    CourseComponent ,
 
   ],
   imports: [

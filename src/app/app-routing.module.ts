@@ -13,11 +13,14 @@ import { AdminAnnoncesComponent } from './pages/admin-annonces/admin-annonces.co
 import { AuthGuardsService } from './services/auth-guards.service';
 import { RoleComponent } from './pages/role/role.component';
 import { AddUserComponent } from './pages/add-user/add-user.component';
+import { CourseComponent } from './pages/course/course.component';
 
 const routes: Routes = [
 
   { path: '', redirectTo: 'index', pathMatch: 'full' },
-  { path: 'index', component: HomeComponent },
+  { path: 'index', component: HomeComponent, children: [
+      {path:'',component:CourseComponent}
+  ] },
   { path: 'login', component: LoginComponent },
    {path:'annonces',component:InformationComponent},
    {

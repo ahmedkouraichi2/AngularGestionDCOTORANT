@@ -2,3 +2,7 @@
   background-image: url('../../../assets/img/header.jpg');
 }
 
+.displayed {
+  display: block;
+  margin-left: auto;
+  margin-right: auto }
