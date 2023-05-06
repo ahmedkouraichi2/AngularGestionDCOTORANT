@@ -1,0 +1,53 @@
+<table class="users-table text-center">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Email</th>
+      <th>Prénom</th>
+      <th>Nom</th>
+      <th>Activé</th>
+      <th>Date de naissance</th>
+      <th>Etablissement</th>
+      <th>Grade</th>
+      <th>Téléphone</th>
+      <th>Spécialité</th>
+      <th>Thème de recherche</th>
+      <th>Rôles</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.id }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.firstname }}</td>
+      <td>{{ user.lastname }}</td>
+      <td>
+        <button
+          class="btn btn-danger btn-sm"
+          *ngIf="user.activated"
+          value="activate"
+      >
+        Deactivated
+      </button>
+      <button
+            class="btn btn-success btn-sm"
+            *ngIf="!user.activated"
+            value="desctive"
+      >
+        Activated
+      </button>
+      </td>
+      <td>{{ user.birthdDay | date }}</td>
+      <td>{{ user.etablissement }}</td>
+      <td>{{ user.grade }}</td>
+      <td>{{ user.tel }}</td>
+      <td>{{ user.specialite }}</td>
+      <td>{{ user.themeDeRecherche }}</td>
+      <td>
+        <ul>
+          <li *ngFor="let role of user.roles">{{ role.roleName }}</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>

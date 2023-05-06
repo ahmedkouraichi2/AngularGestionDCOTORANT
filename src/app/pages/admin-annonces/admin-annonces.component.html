@@ -1,0 +1,139 @@
+<div class="card">
+  <div class="header">
+    <h4 class="title"><span class="now-ui-icons users_single-02"></span> Annonces</h4>
+    <br>
+    <p class="category">Gestion des annonces publiques</p>
+    <button *ngIf="mode == 'list'" rel="tooltip" title="Ajouter un doctorant"
+    class="btn btn-info btn-fill now-ui-icons ui-1_simple-add" (click)="onNewAnnonce()">new annonce</button>
+
+  </div>
+</div>
+<div class="content">
+   <div *ngIf="mode=='new-annonce'" class="container">
+   <div class="row">
+     <div class="col-md-12 card">
+       <div class="header">
+         <h4 class="title">Ajouter une annonce</h4>
+       </div>
+
+
+     </div>
+   </div>
+   </div>
+
+
+
+
+
+
+<div class="d-flex justify-content-center">
+  <div class="col-md-8">
+    <h1 data-cy="registerTitle" >NOUVELLE Annonce</h1>
+
+    <div class="alert alert-success" *ngIf="success">
+      <strong>Registration saved!</strong> Please check your email for confirmation.
+    </div>
+
+    <div class="alert alert-danger" *ngIf="error">
+      <strong>Registration failed!</strong> Please try again later.
+    </div>
+
+
+  </div>
+</div>
+
+<div class="d-flex justify-content-center">
+  <div class="col-md-8">
+    <form name="form" (submit)="ajouterAnnonce()"  #myForm="ngForm" >
+      <div class="mb-3">
+        <label class="form-label" for="email">titre</label>
+        <input type="text" class="form-control" id="email" name="titre" placeholder="titre" required  ngMode [(ngModel)]="nouvelleAnnonce.title" required minlength="2" maxlength="50" #titleInput="ngModel">
+        <div *ngIf="titleInput.invalid && (titleInput.dirty || titleInput.touched)">
+          <small class="form-text text-danger" id="firstNameError">
+            Le title doit contenir entre 2 et 50 caractères
+          </small>
+        </div>
+      </div>
+
+
+
+
+      <div class="mb-3">
+        <label class="form-label" for="password">date</label>
+        <input type="date" class="form-control"  id="password" name="date" placeholder="date" required ngModel [(ngModel)]="nouvelleAnnonce.date"  #dateInput="ngModel">
+        <div *ngIf="dateInput.invalid && (dateInput.dirty || dateInput.touched)">
+          <small class="form-text text-danger" id="firstNameError">
+            Le title doit contenir entre 2 et 50 caractères
+          </small>
+        </div>
+      </div>
+
+
+      <div class="mb-3">
+        <label class="form-label" for="password">Importance</label><br>
+            <select  class="form-control" name="urgence" [(ngModel)]="nouvelleAnnonce.urgence" >
+                          <option value="normale">Normale</option>
+                          <option value="importante">Importante</option>
+                          <option value="urgente">Urgente</option>
+            </select>
+        <small class="form-text text-danger" id="passwordError" hidden></small>
+      </div>
+
+
+      <div class="mb-3">
+        <label class="form-label" for="contenu">contenu</label>
+        <input type="text" class="form-control" id="contenu" name="titre" placeholder="contenu de l'annonces" required  ngMode [(ngModel)]="nouvelleAnnonce.contenu" #contenuInput="ngModel" required>
+        <div *ngIf="contenuInput.invalid && (contenuInput.dirty || contenuInput.touched)">
+          <small class="form-text text-danger" id="firstNameError">
+            L'annonce contenir entre 70 et 1050 caractères
+          </small>
+
+
+
+        </div>
+        
+      </div>
+
+
+
+      <button type="submit" class="btn btn-primary" id="register-button" [disabled]="myForm.invalid">Register</button>
+    </form>
+  </div>
+</div>
+
+
+
+
+
+<div *ngIf="mode == 'list'" class="content">
+  <div class="ct-chart">
+    <div class="table-full-width">
+      <table class="table table-hover table-striped">
+        <thead>
+          <tr>
+            <th class="text-center"> </th>
+            <th class="text-center"> Date</th>
+            <th class="text-center"> Titre</th>
+            <th class="text-center"> Contenu</th>
+            <th class="text-center">Urgence</th>
+            <th class="text-center"> Modifier</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="button" *ngFor=" let annonce of annonces" >
+            <td class="text-center">&nbsp;&nbsp;&nbsp;&nbsp;
+              <i class="now-ui-icons ui-1_calendar-60"></i>
+            </td>
+            <td class="text-center">{{annonce.date|date:'longDate'}}</td>
+            <td class="text-center">{{annonce.title}}</td>
+            <td class="text-center">{{annonce.contenu| slice:0:12}}...</td>
+            <td class="text-center">{{annonce.urgence}}</td>
+            <td class="text-center">
+
+              <button type="submit">Ajouter</button>
+            </td>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

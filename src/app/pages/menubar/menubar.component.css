@@ -1,0 +1,33 @@
+
+.dipo-flex{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+.home_link a{
+	display: block;
+    background: #3421C0;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 3px;
+    margin-top: 40px;
+    display: flex;
+}
+
+
+.right_info{
+	display: flex;
+  float:left;
+  margin-left:1200px;
+}
+
+.right_info .icon_wrap{
+	padding: 8px 15px;
+    border-radius: 3px;
+	background: #3421C0;
+    color: #fff;
+    margin: 0 5px;
+    cursor: pointer;
+    margin-top: 35px;
+}
+
